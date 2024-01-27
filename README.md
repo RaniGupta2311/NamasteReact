@@ -12,3 +12,9 @@ HMR-hot module replacement
 -consistent hashing
 -code splitting
 -differential bundling-support older browser
+-diagnostic
+-Error handling
+-Https
+-Tree shaking-remove unused code
+-Different prod and dev bundle
+
