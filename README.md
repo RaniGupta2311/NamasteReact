@@ -18,3 +18,19 @@ HMR-hot module replacement
 -Tree shaking-remove unused code
 -Different prod and dev bundle
 
+
+Header
+     -logo
+     -nav items
+     -cart
+body 
+     -search
+     -RestaurantContainer
+             -RestaurantCard
+                 img
+                 Name of res,cusines,price,price for two
+footer
+     -copyright
+     -links
+     -addresss
+     -contact
