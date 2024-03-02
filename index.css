@@ -8,18 +8,48 @@
     border:1px solid black;
 }
 .logo{
-    width:100px;
-    height:100px;
+    width:150px;
+    height:130px;
 }
 .nav-items>ul{
     display: flex;
     list-style-type: none;
     padding:0px 20px;
     font-size: 20px;
+    gap:20px;
 }
 .nav-items>ul>li{
     padding:10px;
 }
+.body{
+    padding:0 60px;
+}
+.yourmind-container{
+    width:100%;
+    margin:25px 0;
+}
+.yourmind-info{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.slider-wrapper{
+    padding:10px 0;
+}
+.slider-wrapper .image-list{
+    display: grid;
+    grid-template-columns: repeat(20,1fr);
+    gap:18px;
+    overflow-x: auto;
+    font-size: 0;
+    scrollbar-width: none;
+}
+.slider-wrapper .image-list .food-image{
+    width:200px;
+    height:200px;
+    object-fit: cover;
+}
+
 .res-container{
     display:flex;
     justify-content: center;
@@ -53,4 +83,15 @@
     height:300px;
     background-color: lightgray;
     margin:20px;
+}
+.contact{
+    height:560px;
+}
+.about{
+    height:560px;
+}
+.footer{
+    width:100vw;
+    height: 90px;
+    background-color: rgb(54, 54, 54);
 }

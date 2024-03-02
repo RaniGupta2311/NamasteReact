@@ -2,18 +2,50 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
-
-// https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.444980032351513&lng=78.35968963801861&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING
-
+import {createBrowserRouter,RouterProvider,Outlet} from "react-router-dom";
+import About from "./components/About";
+import Error from "./components/Error";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
+import RestaurantMenu from "./components/RestaurantMenu";
 const AppLayout=()=>{
   return (
     <div>
       <Header/>
-      <Body/>
+      <Outlet/>
+      <Footer/>
     </div>
   )
 }
+
+const appRouter=createBrowserRouter([
+  {
+    path:"/",
+    element:<AppLayout/>,
+    errorElement:<Error/>,
+    children:[
+      {
+        path:"/",
+        element:<Body/>
+      },
+      {
+        path:"/about",
+        element:<About/>
+      },
+      {
+        path:"/contact",
+        element:<Contact/>
+      },
+      
+    ],
+  },
+  {
+    path:"/restaurant/:resId",
+    element:<RestaurantMenu/>
+  }
+])
+
 const root=ReactDOM.createRoot(document.getElementById("root"));
-root.render(<AppLayout/>)
+root.render(<RouterProvider router={appRouter}><AppLayout/></RouterProvider>)
 export default AppLayout;
 
