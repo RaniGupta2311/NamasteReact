@@ -1,7 +1,9 @@
 import { LOGO_URL } from "../utils/constants";
 import {useState} from "react";
 import { Link } from "react-router-dom";
+import { useOnlineStatus } from "../utils/useOnlineStatus";
 const Header=()=>{
+    const isOnline=useOnlineStatus();
     const [btnName,setBtnName]=useState("Login")
     return (
       <div className="header">
@@ -17,6 +19,7 @@ const Header=()=>{
             <button className="login"
             onClick={()=>btnName==="Login"?setBtnName("Logout"):setBtnName("Login")}
             >{btnName}</button>
+            {isOnline?"✅":"❌"}
           </ul>
         </div>
       </div>

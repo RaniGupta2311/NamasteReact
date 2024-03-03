@@ -14,12 +14,8 @@ class About extends React.Component{
         // console.log("Parent render called")
         return (
             <div className="about">
-            <h1>This is About page</h1>
-            {/* <User name={"Rani from function component"}/> */}
+            <h1>This is About page</h1> 
             <UserClass name={"First"} location="Aurangabad"/>
-            {/* <UserClass name={"Second"} location="Aurangabad"/>
-            <UserClass name={"Third"} location="Aurangabad"/>
-            <UserClass name={"Forth"} location="Aurangabad"/> */}
         </div>
         )
     }
