@@ -1,4 +1,4 @@
-*{
+/* *{
     margin:0;
 }
 .header{
@@ -98,15 +98,15 @@
 .menu-image{
     width:100px;
     height:100px;
-}
-.menu{
+} */
+/* .menu{
     display:flex;
     flex-direction: column;
     justify-content: center;
-    /* align-items: center; */
+    align-items: center;
     padding:0 175px;
-}
-.res-menu-info{
+} */
+/* .res-menu-info{
     margin:25px 0;
     display:flex;
     justify-content: space-between;
@@ -120,8 +120,8 @@
     padding:20px 0;
     width:100%;
     border-bottom: 6px solid rgb(167, 163, 163);
-}
-
+} */
+/* 
 .item-type-container{
     display:flex;
     justify-content: space-between;
@@ -135,4 +135,7 @@
     align-items: center;
     padding:20px 0;
     border-bottom: 5px solid gray;
-}
+} */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
