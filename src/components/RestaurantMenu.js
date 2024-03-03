@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import {useState,useEffect} from "react";
 import { SWIGGY_MENU_URL } from "../utils/constants";
 import Shimmer from "./Shimmer";
+import MenuCategory from "./MenuCategory";
 const RestaurantMenu=()=>{
     const [resInfo,setResInfo]=useState(null);
     const params=useParams();
@@ -21,32 +22,41 @@ const RestaurantMenu=()=>{
     return <Shimmer/>
 
 
-    const {name,cuisines,costForTwoMessage}=resInfo.cards[0]?.card?.card?.info;
+    const {name,cuisines,costForTwoMessage,sla,areaName,avgRating,totalRatingsString}=resInfo.cards[0]?.card?.card?.info;
     const {itemCards}=resInfo?.cards[2]?.groupedCard.cardGroupMap.REGULAR.cards[1].card.card;
+    const {cards}=resInfo?.cards[2]?.groupedCard.cardGroupMap.REGULAR;
+    console.log("Cards",cards);
 
-
-    console.log("Itemcards",itemCards);
+    // console.log("Itemcards",itemCards);
+    
     return (
         <div className="menu">
-            <h1>{name}</h1>
-            <h2>{cuisines.join(",")}</h2>
-            <p>Restaurant Id: {resId}</p>
-            <p>{costForTwoMessage}</p>
-            <ul>
+
+        <div className="res-menu-info">
+            <div className="res-info">
+                <h1>{name}</h1>
+                <h2>{cuisines.join(",")}</h2>
+                <p>{costForTwoMessage}</p>
+                <p>{areaName}, {sla.lastMileTravelString}</p>
+            </div>
+
+            <div className="res-rating-info">
+                <p>{avgRating}</p>
+                <p>{totalRatingsString}</p>
+            </div>
+        </div>
+
+            <div>
+                {cards.map((menu,index)=>{
+                    {/* {console.log("Item cards length",menu.card.card.itemCards)} */}
+                    return Array.isArray(menu.card.card.itemCards) ? <MenuCategory key={index} title={menu.card.card.title} itemCards={menu.card.card.itemCards}/>:null
+                })}
+            </div>
+
+            {/* <ul>
                 {itemCards.map((item)=><li key={item.card.info.id}>{item.card.info.name}</li>)}
-                {/* <li>{itemCards[0].card.info.name}</li>
-                <li>{itemCards[1].card.info.name}</li>
-                <li>{itemCards[2].card.info.name}</li>
-                <li>{itemCards[3].card.info.name}</li>
-                <li>{itemCards[4].card.info.name}</li>
-                <li>{itemCards[5].card.info.name}</li>
-                <li>{itemCards[6].card.info.name}</li>
-                <li>{itemCards[7].card.info.name}</li>
-                <li>{itemCards[8].card.info.name}</li>
-                <li>{itemCards[9].card.info.name}</li>
-                <li>{itemCards[10].card.info.name}</li>
-                <li>{itemCards[11].card.info.name}</li> */}
-            </ul>
+            </ul> */}
+
         </div>
     )
 }

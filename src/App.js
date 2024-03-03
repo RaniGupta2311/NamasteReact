@@ -13,7 +13,7 @@ const AppLayout=()=>{
     <div>
       <Header/>
       <Outlet/>
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   )
 }
