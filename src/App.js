@@ -55,7 +55,16 @@ const appRouter=createBrowserRouter([
 
 const root=ReactDOM.createRoot(document.getElementById("root"));
 root.render(<RouterProvider router={appRouter}>
-<AppLayout/>
+<AppLayout className="relative p-20 min-h-[100%] min-w-[1240px] flex flex-col"/>
 </RouterProvider>)
 export default AppLayout;
 
+
+// sition: relative;
+//     padding-top: 80px;
+//     min-height: 100%;
+//     display: -ms-flexbox;
+//     display: flex;
+//     -ms-flex-direction: column;
+//     flex-direction: column;
+//     min-width: 1240px;

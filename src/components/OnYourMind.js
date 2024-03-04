@@ -21,9 +21,10 @@ const OnYourMind = () => {
     );
   }
   return (
-    <div className="yourmind-container">
-      <div className="yourmind-info">
-        <h1>What's on your mind?</h1>
+    <div className="flex flex-col pt-2 pb-2 pl-2 pr-2">
+
+      <div className="flex justify-between items-center pt-2 pb-4">
+        <h1 className="text-2xl font-medium text-gray-700">What's on your mind?</h1>
         <div className="btn-container">
           <button
             onClick={() => {
@@ -42,8 +43,8 @@ const OnYourMind = () => {
         </div>
       </div>
 
-      <div className="slider-wrapper">
-        <div className="image-list">
+      <div className="flex">
+        <div className="flex overflow-x-auto pt-2 pb-2">
           {listOfImages.map((image, index) => {
             return (
               <FoodImageCard
