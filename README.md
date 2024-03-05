@@ -38,3 +38,5 @@ footer
 
 Named import export
 #React Hooks
+
+Higher order component used for showing offer label in Restaurant

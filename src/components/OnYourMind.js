@@ -12,16 +12,16 @@ const OnYourMind = () => {
   async function getImagesData() {
     const data = await fetch(SWIGGY_API_URL);
     const jsonData = await data.json();
-    console.log(
-      "what's on your mind",
-      jsonData.data.cards[0].card.card.gridElements.infoWithStyle.info
-    );
+    // console.log(
+    //   "what's on your mind",
+    //   jsonData.data.cards[0].card.card.gridElements.infoWithStyle.info
+    // );
     setListOfImages(
       jsonData.data.cards[0].card.card.gridElements.infoWithStyle.info
     );
   }
   return (
-    <div className="flex flex-col pt-2 pb-2 pl-2 pr-2">
+    <div className="flex flex-col pl-4 pr-4">
 
       <div className="flex justify-between items-center pt-2 pb-4">
         <h1 className="text-2xl font-medium text-gray-700">What's on your mind?</h1>
@@ -43,8 +43,8 @@ const OnYourMind = () => {
         </div>
       </div>
 
-      <div className="flex">
-        <div className="flex overflow-x-auto pt-2 pb-2">
+      <div className="flex shadow-sm">
+        <div className="flex overflow-x-auto">
           {listOfImages.map((image, index) => {
             return (
               <FoodImageCard

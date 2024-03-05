@@ -8,7 +8,7 @@ class UserClass extends React.Component{
         //     count:0,
         //     count2:5
         // }
-        console.log(this.props.name,"Child Contructor called")
+        // console.log(this.props.name,"Child Contructor called")
         this.state={
             userInfo:{
                 name:"Dummmy",
@@ -19,11 +19,11 @@ class UserClass extends React.Component{
     }
    
     async componentDidMount(){
-        console.log(this.props.name,"Child ComponentDidMount called")
+        // console.log(this.props.name,"Child ComponentDidMount called")
         // API Calls
         const data=await fetch(GITHUB_PROFILE_URL);
         const jsonData=await data.json();
-        console.log(jsonData);
+        // console.log(jsonData);
         this.setState({
             userInfo:jsonData
         })
@@ -34,17 +34,17 @@ class UserClass extends React.Component{
     }
 
     componentDidUpdate(){
-        console.log("componentDidUpdate called")
+        // console.log("componentDidUpdate called")
     }
 
     componentWillUnmount(){
-        console.log("componentWillUmnount Called");
+        // console.log("componentWillUmnount Called");
         clearInterval(this.timer)
     }
     
     render(){
         const {name,location,avatar_url}=this.state.userInfo;
-        console.log(this.props.name,"Child Render called")
+        // console.log(this.props.name,"Child Render called")
         // debugger;
         return(
             <div className="user-card">

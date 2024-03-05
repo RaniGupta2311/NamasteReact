@@ -1,15 +1,18 @@
 import ItemInfo from "./ItemInfo";
 import {useState} from "react";
 
-const MenuCategory=({title,itemCards})=>{
-    const [show,setShow]=useState(true);
+const MenuCategory=({title,itemCards,show,handleShowIndex})=>{
+
+// RestaurantCategory === MenuCategory
+    // const [show,setShow]=useState(false);
     return (
         <div className="mt-2 pt-4 pb-4 border-b-8 border-gray-300">
-            <div className="flex justify-between">
-                <h1 className="font-bold text-xl">{title}</h1>
-                <button onClick={()=>setShow(!show)}>{show?"🔼":"🔽"}</button>
+            {/* Header */}
+            <div className="flex justify-between cursor-pointer" onClick={handleShowIndex}>
+                <h1 className="font-bold text-xl">{title} ({itemCards.length})</h1>
+                <button>{show?"🔼":"🔽"}</button>
             </div>
-
+            {/* Accordion body */}
             {show && <div>
                 {/* {console.log("itemsCards",itemCards.length)} */}
                 {itemCards?itemCards.map((item)=><ItemInfo item={item.card.info}/>):null}
