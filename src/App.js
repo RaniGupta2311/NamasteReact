@@ -9,6 +9,9 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import RestaurantMenu from "./components/RestaurantMenu";
 import UserContext from "./utils/UserContext";
+import appStore from "./utils/appStore";
+import { Provider } from "react-redux";
+import Cart from "./components/Cart";
 // import Grocery from "./components/Grocery";
 // lazy loading
 const About=lazy(()=>import("./components/About"));
@@ -24,20 +27,15 @@ const AppLayout=()=>{
   },[])
 
   return (
-    // default value
-    <UserContext.Provider value={{loggedInUser:userName ,setUserName}}>
-      {/* Rani Gupta */}
+    <Provider store={appStore}>
+      <UserContext.Provider value={{loggedInUser:userName ,setUserName}}>
         <div>
-          {/* <UserContext.Provider value={{loggedInUser:"Elon Musk"}}>
-          Elon Musk
-            <Header/>
-          </UserContext.Provider> */}
           <Header/>
           <Outlet/>
       {/* <Footer/> */}
         </div>
-    </UserContext.Provider>
-    
+      </UserContext.Provider>
+    </Provider>
   )
 }
 
@@ -66,7 +64,11 @@ const appRouter=createBrowserRouter([
       {
         path:"/grocery",
         element:<Suspense fallback={<h1>Loading...</h1>}><Grocery/></Suspense>
-      }
+      },
+      {
+        path:"/cart",
+        element:<Cart/>
+      },
     ],
   },
   
@@ -77,13 +79,3 @@ root.render(<RouterProvider router={appRouter}>
 <AppLayout className="relative p-20 min-h-[100%] min-w-[1240px] flex flex-col"/>
 </RouterProvider>)
 export default AppLayout;
-
-
-// sition: relative;
-//     padding-top: 80px;
-//     min-height: 100%;
-//     display: -ms-flexbox;
-//     display: flex;
-//     -ms-flex-direction: column;
-//     flex-direction: column;
-//     min-width: 1240px;

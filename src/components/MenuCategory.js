@@ -15,7 +15,7 @@ const MenuCategory=({title,itemCards,show,handleShowIndex})=>{
             {/* Accordion body */}
             {show && <div>
                 {/* {console.log("itemsCards",itemCards.length)} */}
-                {itemCards?itemCards.map((item)=><ItemInfo item={item.card.info}/>):null}
+                {itemCards?itemCards.map((item)=><ItemInfo key={item.card.info.id} item={item.card.info}/>):null}
             </div>}
         </div>
     )

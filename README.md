@@ -40,3 +40,9 @@ Named import export
 #React Hooks
 
 Higher order component used for showing offer label in Restaurant
+#Redux Toolkit
+install @reduxjs/toolkit
+install react-redux
+connect our store to our app
+dispatch(action)
+selector

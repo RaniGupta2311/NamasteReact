@@ -4,3 +4,4 @@ export const LOGO_URL="https://www.logodesign.net/logo/smoking-burger-with-lettu
 export const SWIGGY_API_URL="https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.444980032351513&lng=78.35968963801861&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
 export const SWIGGY_MENU_URL="https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=17.4400802&lng=78.3489168&&submitAction=ENTER&restaurantId=";
 export const GITHUB_PROFILE_URL="https://api.github.com/users/Ranigupta2311";
+export const CART_EMPTY_IMG="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/2xempty_cart_yfxml0";
