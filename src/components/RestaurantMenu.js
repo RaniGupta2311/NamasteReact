@@ -1,6 +1,6 @@
 import {useState} from "react";
 import { useParams } from "react-router-dom";
-import Shimmer from "./Shimmer";
+import MenuShimmer from "./MenuShimmer";
 import MenuCategory from "./MenuCategory";
 import { useRestaurantMenu } from "../utils/useRestaurantMenu";
 import { IoStarSharp } from "react-icons/io5";
@@ -13,7 +13,7 @@ const RestaurantMenu = () => {
   const { resId } = params;
   const resInfo = useRestaurantMenu(resId);
 
-  if (resInfo === null) return <Shimmer />;
+  if (resInfo === null) return <MenuShimmer />;
 
   const {
     name,

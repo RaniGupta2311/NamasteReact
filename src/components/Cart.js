@@ -29,8 +29,10 @@ const Cart=()=>{
                     onClick={()=>navigate("/")}>
                     see restaurants near you</button>
                 </div>
-                : <div>
-                    <button onClick={handleClearCart}>Clear Cart</button>
+                : <div className="w-6/12 m-auto">
+                    <button onClick={handleClearCart}
+                    className="w-full bg-green-700 text-white p-2 cursor-pointer hover:bg-red-700"
+                    >Clear Cart</button>
                 </div>}
             {/* <h1>Total items: {items.length}</h1> */}
         </div>

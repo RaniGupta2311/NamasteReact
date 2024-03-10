@@ -4,20 +4,17 @@ import {useState,useEffect,useContext} from "react";
 import { SWIGGY_API_URL } from "../utils/constants";
 import Shimmer from "./Shimmer";
 import OnYourMind from "./OnYourMind";
-import Footer from "./Footer";
 import {Link} from "react-router-dom";
 import UserContext from "../utils/UserContext";
 
 const Body=()=>{
-  // State Variable -super powerful 
   const [listOfRestaurants,setListOfRestaurants]=useState([]);
   const [filteredRestaurant,setFilteredRestaurant]=useState([])
   const [searchText,setSearchText]=useState("");
-
+  const [listOfImages, setListOfImages] = useState([]);
   const RestaurantCardOfferLabel=withOfferLabel(RestaurantCard);
 
   useEffect(()=>{
-    // console.log("use Effect called");
     fetchData();
   },[])
 
@@ -26,20 +23,17 @@ const Body=()=>{
     const jsonData=await data.json();
     // console.log("All data",jsonData.data);
     // console.log(jsonData.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
-    setListOfRestaurants(jsonData.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
-    setFilteredRestaurant(jsonData.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
-
+    setListOfRestaurants(jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setFilteredRestaurant(jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setListOfImages(jsonData?.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.info);
   }
-
-  // console.log("render");
 
   const {setUserName,loggedInUser}=useContext(UserContext)
  
     return (listOfRestaurants.length===0)?<Shimmer/>:(
-      <div className="pl-36 pr-36 bg-gray-200 absolute top-24 z-0">
-          {/* <div className="search">search</div> */}
-          {/* What's on your mind */}
-          <OnYourMind/>
+      <div className="pl-36 pr-36 bg-gray-100 absolute top-24 z-0">
+          <OnYourMind listOfImages={listOfImages}/>
+
           <div className="flex mt-8 pl-4 pr-4 pt-2 pb-2 justify-between">
             <div className="flex justify-center items-center gap-4">
               <input type="text" className="w-80 h-12 p-2 rounded-lg"

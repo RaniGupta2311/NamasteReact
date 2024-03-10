@@ -8,14 +8,14 @@ const RestaurantCard=(props)=>{
     return (
       <div className="w-[16rem] flex flex-col rounded-xl">
           <img className="w-[100%] h-36 rounded-xl" src={CDN_IMG_URL+cloudinaryImageId}/>
-          <div className="pt-3 h-36 flex flex-col gap-1">
-            <h2 className="font-bold text-xl">{name}</h2>
+          <div className="w-[100%] pt-3 pb-3 pl-2 pr-2 h-36 flex flex-col gap-1">
+            <h2 className="font-bold text-xl text-ellipsis overflow-hidden whitespace-nowrap">{name}</h2>
             <div className="flex items-center gap-1">
               <MdStars className={avgRating>4?"text-green-700":"text-red-700"}/>
               <h4 className="font-semibold">{avgRating} stars -</h4>
               <h4 className="font-semibold">{sla.deliveryTime} mins</h4>
             </div>
-            <p className="font-medium text-gray-700">{cuisines.join(",")}</p>
+            <p className="w-[100%] font-medium text-gray-700 text-ellipsis overflow-hidden whitespace-nowrap ">{cuisines.join(",")}</p>
             <p className="font-medium text-gray-700">{areaName}</p>
           </div>
            {/* showing logged in user from UserContext in card  */}
